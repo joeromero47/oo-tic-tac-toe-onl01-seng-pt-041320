@@ -22,5 +22,46 @@ class TicTacToe
     puts "-----------"
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
-    
+  
+  def input_to_index(input) #this method is taking a string(input) and converting it to interger(.to_i) then it deducts 1 so it corredsponds to array index
+    index = input.to_i - 1
+  end
+  
+  def move(index, token="X") #puts players token (x or o) at array (@board) index. Default is X
+    @board[index] = token
+  end
+  
+  def position_taken?(index) #checks if position on board is taken based on argument passed(index)
+    @board[index] == " " ? false : true
+  end
+  
+  def valid_move?(position) #checks if the position within game bounds (btw 0 and 8) and position is empty
+    position.between?(0,8) && @board[position] == " " ? true : false
+  end
+  
+  def turn_count #determines number of turns based on how many fields on the board are occupied (each turn 1 field occupied)
+    @board.count { |x| x != " "} #count all the fields that are not empty
+  end
+  
+  def current_player #based on turn count and the fact that X is always odd and 0 is even determines whose turn it is
+    player = turn_count
+    player %2 == 0 ? player = "X" : player = "O"
+  end
+  
+  def turn #makes a turn by getting a user input and making a turn and displaying a board or running this method again if the turn is not valid
+    puts "Please choose a number 1-0: "
+    user_input = gets.chomp
+    index = input_to_index(user_input)
+    if valid_move?(index)
+      player_token = current_player
+      move(index, player_token)
+      display_board
+    else
+      turn
+    end
+  end
+  def won? #this is messed up ???
+    win_combinations.each do |combo|
+      index_0 = combo[0]
+      
 end
