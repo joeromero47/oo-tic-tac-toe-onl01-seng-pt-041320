@@ -40,7 +40,14 @@ class TicTacToe
   end
   
   def turn_count #determines number of turns based on how many fields on the board are occupied (each turn 1 field occupied)
-    @board.count { |x| x != " "} #count all the fields that are not empty
+   turn = 0
+    @board.each do |index|
+    if index == "X" || index == "O"
+      turn += 1
+    end
+    end
+  return turn
+end
   end
   
   def current_player #based on turn count and the fact that X is always odd and 0 is even determines whose turn it is
