@@ -16,5 +16,5 @@ class TicTacToe
   end
   
   def display_board #drawing a board
-    puts " #{@board[0]} |"
+    puts " #{@board[0]} | #{@board[1]} | #{@board[2]}"
 end
