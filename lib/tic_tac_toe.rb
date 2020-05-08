@@ -51,8 +51,14 @@ end
   end
   
   def current_player #based on turn count and the fact that X is always odd and 0 is even determines whose turn it is
-    player = turn_count
-    player %2 == 0 ? player = "X" : player = "O"
+    num_turns = turn_count
+    if num_turns % 2 == 0
+      player = "X"
+    else
+      player = "O"
+   end
+  return player
+end
   end
   
   def turn #makes a turn by getting a user input and making a turn and displaying a board or running this method again if the turn is not valid
