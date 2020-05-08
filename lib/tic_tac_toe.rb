@@ -32,7 +32,7 @@ class TicTacToe
   end
   
   def position_taken?(index) #checks if position on board is taken based on argument passed(index)
-    @board[index] == " " ? false : true
+    !(@board[index].nil? || @board[index] == " " )
   end
   
   def valid_move?(position) #checks if the position within game bounds (btw 0 and 8) and position is empty
