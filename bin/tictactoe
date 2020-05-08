@@ -2,4 +2,4 @@
 require 'pry'
 require_relative '../lib/tic_tac_toe.rb'
 
-tictactoe.bin
+tic_tac_toe.rb
