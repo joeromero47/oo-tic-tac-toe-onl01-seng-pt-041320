@@ -15,6 +15,12 @@ class TicTacToe
     @board = Array.new(9, " ") #starting a new board each time class is instanced
   end
   
-  def display_board #drawing a board
-    puts " #{@board[0]} | #{@board[1]} | #{@board[2]}"
+  def display_board
+    puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
+    puts "-----------"
+    puts " #{@board[3]} | #{@board[4]} | #{@board[5]} "
+    puts "-----------"
+    puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
+  enddef display_board #drawing a board
+    
 end
